@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2C3E50;
+    background-color: #FFFFFF;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+@layer components {
+  .container-main {
+    @apply max-w-container mx-auto px-4 md:px-6;
+  }
+
+  .section-pad {
+    @apply py-12 md:py-section;
+  }
+
+  .section-label {
+    @apply font-heading text-section-label font-bold uppercase text-gold block mb-2.5 md:mb-3;
+  }
+
+  .section-title {
+    @apply font-heading text-2xl md:text-[32px] font-bold text-navy leading-tight mb-3 md:mb-4;
+  }
+
+  .section-desc {
+    @apply text-sm md:text-base text-text-secondary max-w-[600px] leading-relaxed;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center font-heading text-sm font-semibold tracking-wide
+           cursor-pointer transition-all duration-200 no-underline;
+    @apply px-6 md:px-8 py-3 md:py-3.5 border-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-navy text-white hover:bg-navy-light;
+  }
+
+  .btn-cta {
+    @apply btn bg-gold text-white hover:bg-gold-light;
+  }
+
+  .btn-outline {
+    @apply btn bg-transparent text-navy border-2 border-navy hover:bg-navy hover:text-white;
+  }
+
+  .btn-sm {
+    @apply btn px-5 md:px-6 py-2.5 text-[13px];
+  }
+
+  .btn-lg {
+    @apply btn px-8 md:px-10 py-4 md:py-[18px] text-base;
+  }
+
+  /* Responsive grid helpers */
+  .grid-auto {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  .grid-auto-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8;
+  }
+
+  /* Image skeleton - wrap any img with this container */
+  .img-skeleton {
+    @apply relative overflow-hidden bg-[#F0F2F5];
+  }
+
+  .img-skeleton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      #F0F2F5 25%,
+      #E4E7EB 37%,
+      #F0F2F5 63%
+    );
+    background-size: 400% 100%;
+    animation: skeleton-shimmer 1.4s ease infinite;
+    z-index: 1;
+  }
+
+  .img-skeleton img {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .img-skeleton img.loaded {
+    opacity: 1;
+  }
+}
+
+/* Shimmer animation for skeleton */
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+/* Mobile scrollbar */
+@media (max-width: 1023px) {
+  .lg\:hidden {
+    scrollbar-width: thin;
+  }
+}
+
+/* Toast progress bar animation */
+@keyframes shrink-bar {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+
+.animate-shrink-bar {
+  animation: shrink-bar linear forwards;
+}
+
+/* Mobile bottom nav safe area for iPhone notch */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

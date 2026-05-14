@@ -1,4 +1,9 @@
-const CACHE_NAME = 'luxehospi-v1';
+// Version is injected at build time by vite plugin (see vite.config.ts)
+// If not injected, falls back to timestamp-based version
+const CACHE_NAME = typeof __SW_VERSION__ !== 'undefined'
+  ? `luxehospi-v${__SW_VERSION__}`
+  : `luxehospi-t${Date.now()}`;
+
 const PRECACHE_URLS = [
   '/',
   '/fonts/fonts.css',

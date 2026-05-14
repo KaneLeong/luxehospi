@@ -44,53 +44,46 @@ export default function Home() {
       />
 
       {/* HERO */}
-      <section className="bg-gradient-to-br from-navy to-navy-dark py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute -top-1/2 -right-[20%] w-[600px] h-[600px] border border-gold/10 rotate-45 hidden lg:block" />
-        <div className="max-w-container mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          <div className="flex-1 text-center lg:text-left">
-            <span className="font-heading text-[10px] md:text-xs font-bold tracking-[2px] md:tracking-[3px] uppercase text-gold block mb-4 md:mb-5">
-              Integrated Hospitality Textile Manufacturer
-            </span>
-            <h1 className="font-heading text-3xl md:text-[42px] lg:text-[48px] font-bold text-white leading-tight mb-4 md:mb-5">
-              From Yarn to Finished Goods,{' '}
-              <span className="text-gold">Quality at Every Step.</span>
-            </h1>
-            <p className="text-base md:text-lg text-white/70 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              Vertically integrated manufacturer covering spinning, knitting, dyeing, and garment production.
-              Premium hotel textiles and amenities delivered directly from our factory to your property.
-            </p>
-            <div className="flex gap-3 md:gap-4 justify-center lg:justify-start flex-wrap">
-              <Link to="/products" className="btn-cta">
-                Explore Products
-              </Link>
-              <Link to="/rfq" className="btn bg-transparent text-white border-2 border-white/40 hover:bg-white/10">
-                Get Free Samples
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 lg:flex lg:gap-10 mt-10 md:mt-12 pt-6 md:pt-8 border-t border-white/15 gap-4 md:gap-6">
-              {[
-                { num: stat1.display, label: 'Years of Experience' },
-                { num: stat2.display, label: 'Product Lines' },
-                { num: stat3.display, label: 'Factories' },
-                { num: stat4.display, label: 'Countries Exported' },
-              ].map((s) => (
-                <div key={s.label}>
-                  <div className="font-heading text-2xl md:text-[28px] font-bold text-gold">{s.num}</div>
-                  <div className="text-[12px] md:text-[13px] text-white/55 mt-1">{s.label}</div>
-                </div>
-              ))}
-            </div>
+      <section className="bg-gradient-to-br from-navy to-navy-dark py-16 md:py-24 text-center relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img src="/images/hero-home.webp" alt="" className="w-full h-full object-cover opacity-20" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy/90 to-navy-dark/80" />
+        </div>
+        <div className="absolute -top-1/2 -right-[15%] w-[500px] h-[500px] border border-gold/10 rotate-45 hidden md:block" />
+        <div className="max-w-container mx-auto px-4 md:px-6 relative z-10">
+          <span className="font-heading text-[10px] md:text-xs font-bold tracking-[2px] md:tracking-[3px] uppercase text-gold block mb-3 md:mb-4">
+            Integrated Hospitality Textile Manufacturer
+          </span>
+          <h1 className="font-heading text-3xl md:text-[44px] lg:text-[50px] font-bold text-white leading-tight mb-4 md:mb-5">
+            From Yarn to Finished Goods,{' '}
+            <span className="text-gold">Quality at Every Step.</span>
+          </h1>
+          <p className="text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-8 md:mb-10">
+            Vertically integrated manufacturer covering spinning, knitting, dyeing, and garment production.
+            Premium hotel textiles and amenities delivered directly from our factory to your property.
+          </p>
+          <div className="flex gap-3 md:gap-4 justify-center flex-wrap mb-10 md:mb-12">
+            <Link to="/products" className="btn-cta">
+              Explore Products
+            </Link>
+            <Link to="/rfq" className="btn bg-transparent text-white border-2 border-white/40 hover:bg-white/10">
+              Get Free Samples
+            </Link>
           </div>
-          <div className="hidden lg:block flex-shrink-0 w-[440px]">
-            <div className="w-full h-80 relative overflow-hidden img-skeleton">
-              <OptimizedImage
-                src="/images/hero-home.webp"
-                alt="LUXEHOSPI Premium Hotel Supplies"
-                className="w-full h-full"
-                eager
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
-            </div>
+          {/* Stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 pt-8 md:pt-10 border-t border-white/15 max-w-2xl mx-auto">
+            {[
+              { num: stat1.display, label: 'Years of Experience' },
+              { num: stat2.display, label: 'Product Lines' },
+              { num: stat3.display, label: 'Factories' },
+              { num: stat4.display, label: 'Countries Exported' },
+            ].map((s) => (
+              <div key={s.label}>
+                <div className="font-heading text-2xl md:text-[28px] font-bold text-gold">{s.num}</div>
+                <div className="text-[12px] md:text-[13px] text-white/55 mt-1">{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

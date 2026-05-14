@@ -7,10 +7,14 @@ interface OptimizedImageProps {
   width?: number
   height?: number
   className?: string
+  /** 'lazy' | 'eager' — native loading attribute */
   loading?: 'lazy' | 'eager'
+  /** Shorthand for loading='eager' */
   eager?: boolean
   style?: CSSProperties
+  /** Fallback image on error */
   fallback?: string
+  /** object-fit: cover (default) or contain */
   cover?: boolean
   /** Explicit LQIP base64 string; if omitted, auto-resolves from lqip.ts by filename */
   lqip?: string
@@ -22,7 +26,7 @@ export default function OptimizedImage({
   width,
   height,
   className = '',
-  loading,
+  loading: loadingProp,
   eager,
   style,
   fallback = '/images/hero-home.webp',
@@ -47,7 +51,8 @@ export default function OptimizedImage({
   }
 
   const actualSrc = error ? fallback : src
-  const isLoading = eager ? loading === 'eager' : loading
+  // Resolve loading attribute: eager prop takes priority, then explicit loading prop, default lazy
+  const resolvedLoading = eager ? 'eager' : (loadingProp || 'lazy')
 
   return (
     <div
@@ -83,7 +88,7 @@ export default function OptimizedImage({
         alt={alt}
         width={width}
         height={height}
-        loading={isLoading as 'lazy' | 'eager' | undefined}
+        loading={resolvedLoading}
         decoding="async"
         onLoad={() => setLoaded(true)}
         onError={handleError}

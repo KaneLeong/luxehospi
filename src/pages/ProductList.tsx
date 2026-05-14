@@ -8,7 +8,7 @@ import PageLoader from '@/components/shared/PageLoader'
 import { setBreadcrumbLd } from '@/lib/jsonld'
 
 const materialOptions = ['All', '100% Cotton', '100% Combed Cotton', 'Cotton-Poly Blend', 'Non-woven', 'Various']
-const weightOptions = ['All', '380gsm', '500gsm', '600gsm', '700gsm', '800gsm']
+const weightOptions = ['All', '450gsm', '500gsm', '600gsm', '650gsm', '700gsm', '800gsm']
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([])
@@ -72,8 +72,8 @@ export default function ProductList() {
   return (
     <>
       <SEO
-        title="Hotel Supply Catalog"
-        description="Browse our complete hotel supply catalog: bedding, towels, bathrobes, amenities, and more. OEM/ODM available with low MOQ."
+        title="Hotel Textile Catalog"
+        description="Browse our complete hotel textile catalog: bedding, towels, bathrobes, bath mats, and amenities. OEM/ODM available with low MOQ from 300 pcs."
         path="/products"
       />
 
@@ -90,9 +90,10 @@ export default function ProductList() {
       <div className="bg-bg-light py-8 md:py-10 border-b border-border">
         <div className="max-w-container mx-auto px-4 md:px-6">
           <span className="section-label">Our Products</span>
-          <h1 className="section-title">Hotel Supply Catalog</h1>
+          <h1 className="section-title">Hotel Textile Catalog</h1>
           <p className="section-desc">
-            Browse our complete range of hospitality products. Use filters to find exactly what you need.
+            Premium hospitality textiles manufactured in-house. From bedroom linens to bathroom
+            essentials -- factory-direct pricing with full customization support.
           </p>
         </div>
       </div>
@@ -307,7 +308,11 @@ export default function ProductList() {
               </div>
             ) : (
               <div className="text-center py-16">
-                <div className="text-4xl text-border-light mb-4">+</div>
+                <div className="text-4xl text-border-light mb-4">
+                  <svg className="w-12 h-12 mx-auto text-border-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                  </svg>
+                </div>
                 <h3 className="font-heading text-lg font-semibold text-navy mb-2">No products found</h3>
                 <p className="text-sm text-text-secondary mb-4">Try adjusting your filters to find what you&apos;re looking for.</p>
                 <button onClick={clearFilters} className="btn-outline btn-sm">

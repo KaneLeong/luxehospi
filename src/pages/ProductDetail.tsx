@@ -77,8 +77,8 @@ export default function ProductDetail() {
       leadTime: product.leadTime,
     })
     setFaqLd([
-      { q: 'What is the minimum order quantity?', a: 'MOQ varies by product. Standard items start at 500-1,000 pieces. Custom orders may require higher MOQ. We also offer flexible trial orders for new clients.' },
-      { q: 'Can I order custom colors?', a: 'Yes. We offer Pantone color matching with a custom color MOQ of 2,000 pieces. Standard colors have lower MOQ. Lab dips are provided within 5 business days.' },
+      { q: 'What is the minimum order quantity?', a: 'MOQ varies by product. Standard items start at 300 pieces. Fully custom products may require 500-1,000 pieces. Flexible trial orders are available for new clients.' },
+      { q: 'Can I order custom colors?', a: 'Yes. We offer Pantone color matching for custom colors. Standard white and common colors have lower MOQ. Lab dips are provided within 5 business days for approval.' },
       { q: 'Can you add our hotel logo?', a: 'Absolutely. We offer woven labels, printed labels, embroidered logos, and jacquard border branding. Custom label setup takes 7-10 days.' },
       { q: 'How do I get a sample?', a: 'Click "Request Sample" or contact your sales representative. Free samples for existing products (freight collect). Custom samples have a small fee credited against bulk orders.' },
     ])
@@ -469,11 +469,11 @@ export default function ProductDetail() {
             items={[
               {
                 q: 'What is the minimum order quantity?',
-                a: 'MOQ varies by product. Standard items start at 500-1,000 pieces. Custom orders may require higher MOQ. We also offer flexible trial orders for new clients.',
+                a: 'MOQ varies by product. Standard items start at 300 pieces. Fully custom products may require 500-1,000 pieces. Flexible trial orders are available for new clients.',
               },
               {
                 q: 'Can I order custom colors?',
-                a: 'Yes. We offer Pantone color matching with a custom color MOQ of 2,000 pieces. Standard colors have lower MOQ. Lab dips are provided within 5 business days.',
+                a: 'Yes. We offer Pantone color matching for custom colors. Standard white and common colors have lower MOQ. Lab dips are provided within 5 business days for approval.',
               },
               {
                 q: 'Can you add our hotel logo?',

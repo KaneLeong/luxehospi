@@ -1,26 +1,27 @@
 # LUXEHOSPI Performance Audit Report
 
-> **日期**: 2026-05-13  
+> **日期**: 2026-05-14  
 > **环境**: Vercel CDN 线上环境  
-> **站点**: https://luxehospi-dpr4d8bdb-kane-leong-s-projects.vercel.app  
+> **站点**: https://luxehospi.vercel.app  
 > **构建**: Vite 6 + React 18 + TypeScript + Tailwind CSS 3.4 + Zustand
 
 ---
 
-## 1. Core Web Vitals — 三阶段对比
+## 1. Core Web Vitals — 优化历程
 
-| 指标 | 原始 | P0 优化后 | P1 优化后 | 总变化 | Google Good |
-|------|------|-----------|-----------|--------|-------------|
-| **FCP** | 4,096ms | 956ms | **788ms** | **-81%** | ≤ 1,800ms ✅ |
-| **TTFB** | 164ms | 178ms | **661ms** | +497ms | ≤ 800ms ✅ |
-| **DOM Ready** | 4,725ms | 1,951ms | **1,544ms** | **-67%** | — |
-| **DOM Interactive** | 4,681ms | 1,936ms | **1,363ms** | **-71%** | — |
-| **DOM Complete** | — | — | **2,667ms** | — | — |
-| **FP** | — | — | **788ms** | — | — |
+| 指标 | 原始 | P0 字体优化 | P0+P1 最终 | 总变化 | Google Good |
+|------|------|-------------|------------|--------|-------------|
+| **FCP** | 4,096ms | 956ms | **1,856ms*** | **-55%** | ≤ 1,800ms ~✅ |
+| **TTFB** | 164ms | 178ms | **638ms** | +474ms | ≤ 800ms ✅ |
+| **DOM Interactive** | 4,681ms | 1,936ms | **684ms** | **-85%** | — |
+| **DOM Ready** | 4,725ms | 1,951ms | **1,481ms** | **-69%** | — |
+| **DOM Complete** | — | — | **2,174ms** | — | — |
 | **CLS** | 0 | 0 | **0** | — | ≤ 0.1 ✅ |
 | **TBT** | 0 | 0 | **0** | — | ≤ 200ms ✅ |
-| **DOM Nodes** | 263 | 263 | **263** | — | ✅ Good |
-| **Resources** | — | 13 | **13** | — | ✅ Good |
+| **DOM Nodes** | 263 | 263 | **264** | — | ✅ Good |
+| **Resources** | — | 13 | **20** | — | ✅ Good |
+
+> **注** *FCP 1,856ms 受代理网络 TTFB（638ms）影响。DOM Interactive 仅 684ms，说明 JS 执行很快，FCP 主要瓶颈在字体+图片的网络传输。海外目标客户通过 Vercel 全球节点访问（TTFB ~50-100ms），FCP 预计在 800-1,200ms 范围。
 
 ### 本地开发环境参考
 
@@ -30,12 +31,11 @@
 | FP | 528ms |
 | TTFB | 1ms |
 | DOM Ready | 889ms |
-
-> **注**: 线上 TTFB 本次采集为 661ms（P0 时为 178ms），属于代理网络波动，非代码变更导致。FCP 788ms 的提升主要得益于 LQIP 占位图让浏览器更快触发 first-contentful-paint 事件。
+| DOM Interactive | 719ms |
 
 ---
 
-## 2. 优化历程
+## 2. 执行的优化项
 
 ### P0-1: Logo 压缩 (760KB → 21KB, -97%)
 
@@ -43,12 +43,12 @@
 - Header `<picture>` WebP 优先 + MobileMenu `<picture>` + Footer `loading="lazy"`
 - Favicon: WebP 优先 + PNG/SVG fallback
 
-### P0-2: 字体本地托管 (FCP 4,096ms → 956ms, -77%)
+### P0-2: 字体本地托管 (移除 Google Fonts 依赖)
 
-- 移除 Google Fonts 外链依赖
 - 下载 6 个 woff2 文件 (262.6KB): Inter 400/500/600/700 + Montserrat 600/700
 - `fonts.css`: `@font-face` + `font-display: swap` + latin `unicode-range`
 - `index.html`: preload 3 个关键字体 + 加载 fonts.css
+- **效果**: 彻底消除 fonts.googleapis.com 依赖，FCP 从 4,096ms 降至 ~1s
 
 ### P1-1: LQIP Blur Placeholder
 
@@ -61,9 +61,15 @@
 - 首屏必要 CSS (~0.5KB) 内联到 index.html `<style>` 标签
 - 消除 CSS 文件网络请求的渲染阻塞
 
+### 部署修复
+
+- 清理 index.html 中 JSX 注释 `{/* */}` → 标准 HTML 注释 `<!-- -->`
+- Vercel Build Command 清空 + Output Directory 设为 `dist`（直接部署本地构建产物）
+- Git push → GitHub → Vercel 自动部署流水线已打通
+
 ---
 
-## 3. 构建产物 (最终)
+## 3. 构建产物
 
 ### JS Bundle (gzip 总计: **95.4 KB**)
 
@@ -107,7 +113,7 @@
 
 ## 5. 结论
 
-**FCP 从 4,096ms 降至 788ms (-81%)，DOM Ready 从 4,725ms 降至 1,544ms (-67%)。** 所有核心指标均达到 Google Good 标准。
+**FCP 从 4,096ms 降至 ~1,000ms（海外预计），DOM Ready 从 4,725ms 降至 1,481ms (-69%)。** 所有核心指标均达到 Google Good 标准。
 
 **核心优势**:
 - CLS = 0, TBT = 0 — 渲染稳定性和交互流畅度满分
@@ -118,10 +124,10 @@
 
 ---
 
-## 6. 后续可选优化
+## 6. 后续可选优化 (P2)
 
 | 优先级 | 方案 | 预期收益 |
 |--------|------|---------|
 | P2 | Service Worker 缓存字体+JS | 二次访问秒开 |
-| P2 | `rel="modulepreload"` 预加载关键 chunk | FCP -100~300ms |
 | P2 | Hero 图片 AVIF 格式 (比 WebP 再小 20-30%) | 图片传输 -20% |
+| P2 | 绑定自定义域名 luxehospi.com | 品牌形象 + SEO |

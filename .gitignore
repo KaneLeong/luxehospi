@@ -26,3 +26,4 @@ npm-debug.log*
 *.tsbuildinfo
 
 .vercel
+.env*.local

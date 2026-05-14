@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, CSSProperties } from 'react'
+import { useState, useEffect, CSSProperties } from 'react'
 import { getLQIP } from '@/data/lqip'
 
 interface OptimizedImageProps {
@@ -7,16 +7,11 @@ interface OptimizedImageProps {
   width?: number
   height?: number
   className?: string
-  /** 'lazy' | 'eager' — native loading attribute */
   loading?: 'lazy' | 'eager'
-  /** Shorthand for loading='eager' */
   eager?: boolean
   style?: CSSProperties
-  /** Fallback image on error */
   fallback?: string
-  /** object-fit: cover (default) or contain */
   cover?: boolean
-  /** Explicit LQIP base64 string; if omitted, auto-resolves from lqip.ts by filename */
   lqip?: string
 }
 
@@ -35,13 +30,19 @@ export default function OptimizedImage({
 }: OptimizedImageProps) {
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)
-  const imgRef = useRef<HTMLImageElement>(null)
 
   const lqipSrc = lqipProp || getLQIP(src)
 
   useEffect(() => {
     setLoaded(false)
     setError(false)
+
+    // Pre-check: if image is already cached/complete, mark as loaded immediately
+    const testImg = new Image()
+    testImg.src = src
+    if (testImg.complete) {
+      setLoaded(true)
+    }
   }, [src])
 
   const handleError = () => {
@@ -51,7 +52,6 @@ export default function OptimizedImage({
   }
 
   const actualSrc = error ? fallback : src
-  // Resolve loading attribute: eager prop takes priority, then explicit loading prop, default lazy
   const resolvedLoading = eager ? 'eager' : (loadingProp || 'lazy')
 
   return (
@@ -59,7 +59,6 @@ export default function OptimizedImage({
       className={`relative overflow-hidden ${className}`}
       style={{ ...style, aspectRatio: width && height ? `${width}/${height}` : undefined }}
     >
-      {/* LQIP blur placeholder — shows instantly while full image loads */}
       {lqipSrc && !loaded && (
         <img
           src={lqipSrc}
@@ -70,7 +69,6 @@ export default function OptimizedImage({
         />
       )}
 
-      {/* Skeleton shimmer (fallback when no LQIP) */}
       {!loaded && !lqipSrc && (
         <div
           className="absolute inset-0"
@@ -83,17 +81,15 @@ export default function OptimizedImage({
       )}
 
       <img
-        ref={imgRef}
         src={actualSrc}
         alt={alt}
         width={width}
         height={height}
         loading={resolvedLoading}
-        decoding="async"
         onLoad={() => setLoaded(true)}
         onError={handleError}
-        className={`w-full h-full transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'} ${cover ? 'object-cover' : 'object-contain'}`}
-        style={{ position: 'relative', zIndex: 1 }}
+        className={`w-full h-full ${cover ? 'object-cover' : 'object-contain'}`}
+        style={{ position: 'relative', zIndex: 1, opacity: loaded ? 1 : 0, transition: 'opacity 0.3s' }}
       />
     </div>
   )

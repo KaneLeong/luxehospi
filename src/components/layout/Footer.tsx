@@ -60,9 +60,15 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-white/50 leading-relaxed mt-4 max-w-sm">
-              Your complete hospitality solution. Vertically integrated manufacturing from spinning
-              to finished goods -- delivering quality, value, and reliability to hotel partners worldwide.
+              Vertically integrated manufacturer of hotel textiles since 2008. From Siro Compact
+              spinning to finished hospitality linens -- ISO 9001, OEKO-TEX, and BSCI certified.
+              Serving 50+ countries worldwide.
             </p>
+            <div className="mt-5 space-y-1.5 text-[13px] text-white/40">
+              <div>Foshan, Guangdong, China</div>
+              <div>contact@luxehospi.com</div>
+              <div>+86 757 8123 4567</div>
+            </div>
           </div>
 
           {/* Products */}
@@ -71,9 +77,15 @@ export default function Footer() {
               Products
             </h4>
             <div className="flex flex-col gap-1">
-              {['Bedroom Linens', 'Bathroom Textiles', 'Towel Collection', 'Disposable Amenities', 'Room Accessories', 'All Categories'].map((item) => (
-                <Link key={item} to="/products" className="text-sm text-white/60 py-1 no-underline hover:text-white transition-colors">
-                  {item}
+              {[
+                { label: 'Bedroom Linens', to: '/products?category=bedroom-linens' },
+                { label: 'Bathroom Textiles', to: '/products?category=bathroom-textiles' },
+                { label: 'Towel Collection', to: '/products?category=towel-collection' },
+                { label: 'Amenities & Accessories', to: '/products?category=amenities-accessories' },
+                { label: 'All Categories', to: '/products' },
+              ].map((item) => (
+                <Link key={item.label} to={item.to} className="text-sm text-white/60 py-1 no-underline hover:text-white transition-colors">
+                  {item.label}
                 </Link>
               ))}
             </div>
@@ -87,11 +99,9 @@ export default function Footer() {
             <div className="flex flex-col gap-1">
               {[
                 { label: 'About Us', to: '/about' },
-                { label: 'Our Factory', to: '/about' },
+                { label: 'Our Factories', to: '/about' },
                 { label: 'Certifications', to: '/about' },
-                { label: 'Sustainability', to: '/about' },
-                { label: 'Blog', to: '/about' },
-                { label: 'Contact', to: '/contact' },
+                { label: 'Contact Us', to: '/contact' },
               ].map((item) => (
                 <Link key={item.label} to={item.to} className="text-sm text-white/60 py-1 no-underline hover:text-white transition-colors">
                   {item.label}
@@ -110,8 +120,8 @@ export default function Footer() {
                 { label: 'OEM / ODM', to: '/oem-odm' },
                 { label: 'Custom Labeling', to: '/oem-odm' },
                 { label: 'Sample Program', to: '/oem-odm' },
-                { label: 'RFQ Portal', to: '/rfq' },
-                { label: 'Shipping Info', to: '/contact' },
+                { label: 'Request a Quote', to: '/rfq' },
+                { label: 'Shipping & Logistics', to: '/contact' },
               ].map((item) => (
                 <Link key={item.label} to={item.to} className="text-sm text-white/60 py-1 no-underline hover:text-white transition-colors">
                   {item.label}

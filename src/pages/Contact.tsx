@@ -128,9 +128,9 @@ export default function Contact() {
       <section className="bg-bg-light py-8 md:py-12 border-b border-border">
         <div className="max-w-container mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 -mt-12 md:-mt-20 relative z-10">
           {[
-            { icon: '\u2709', title: 'Email Us', value: 'sales@luxehospi.com', desc: 'Response within 24 hours' },
-            { icon: '\u260E', title: 'Call / WhatsApp', value: '+86 138 0000 8888', desc: 'Mon-Sat 9:00-18:00 GMT+8' },
-            { icon: '\u25CF', title: 'WeChat', value: 'LUXEHOSPI_Sales', desc: 'Quick response for inquiries' },
+            { icon: '\u2709', title: 'Email Us', value: 'contact@luxehospi.com', desc: 'Response within 24 hours' },
+            { icon: '\u260E', title: 'Call / WhatsApp', value: '+86 757 8123 4567', desc: 'Mon-Sat 9:00-18:00 GMT+8' },
+            { icon: '\u25CF', title: 'WeChat', value: 'LUXEHOSPI_Official', desc: 'Quick response for inquiries' },
           ].map((card) => (
             <div key={card.title} className="bg-white border border-border p-5 md:p-8 text-center hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-gold-pale mx-auto mb-3 md:mb-4 flex items-center justify-center text-xl md:text-2xl text-gold">
@@ -268,20 +268,20 @@ export default function Contact() {
             </h3>
             <div className="text-[13px] md:text-sm text-text-secondary leading-relaxed space-y-2.5 md:space-y-3">
               <p><strong className="text-text-primary">Address:</strong><br />Floor 8, Textile Tower,<br />Foshan, Guangdong, China 528000</p>
-              <p><strong className="text-text-primary">Phone:</strong><br />+86 757 8888 8888</p>
-              <p><strong className="text-text-primary">Email:</strong><br />sales@luxehospi.com</p>
+              <p><strong className="text-text-primary">Phone:</strong><br />+86 757 8123 4567</p>
+              <p><strong className="text-text-primary">Email:</strong><br />contact@luxehospi.com</p>
             </div>
           </div>
 
           {/* Europe Office */}
           <div className="border border-border p-5 md:p-8">
             <h3 className="font-heading text-sm md:text-base font-semibold text-navy mb-4 md:mb-5 pb-3 border-b border-border">
-              European Office
+              Sales Office
             </h3>
             <div className="text-[13px] md:text-sm text-text-secondary leading-relaxed space-y-2.5 md:space-y-3">
               <p><strong className="text-text-primary">Address:</strong><br />Business Center, Kurfuerstendamm 45,<br />10719 Berlin, Germany</p>
-              <p><strong className="text-text-primary">Phone:</strong><br />+49 30 1234 5678</p>
-              <p><strong className="text-text-primary">Email:</strong><br />europe@luxehospi.com</p>
+              <p><strong className="text-text-primary">Phone:</strong><br />+86 757 8123 4567</p>
+              <p><strong className="text-text-primary">Email:</strong><br />contact@luxehospi.com</p>
             </div>
           </div>
 

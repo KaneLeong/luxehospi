@@ -4,33 +4,33 @@ import { Link } from 'react-router-dom'
 export default function OEMService() {
   const capabilities = [
     { icon: '\u270E', title: 'Custom Branding', desc: 'Woven labels, printed tags, embroidered logos, jacquard borders. Your brand identity on every product.' },
-    { icon: '\u2699', title: 'Custom Fabric', desc: 'Bespoke yarn blends, custom GSM, special weaves. From concept to production in-house.' },
-    { icon: '\u25A1', title: 'Custom Size', desc: 'Any dimension to fit your specific requirements. From standard hospitality sizes to bespoke specifications.' },
-    { icon: '\u25CE', title: 'Custom Color', desc: 'Pantone color matching with lab dip approval process. Standard and custom dyeing options available.' },
-    { icon: '\u2302', title: 'Custom Packaging', desc: 'Branded polybags, gift boxes, retail packaging, bulk packaging. Complete packaging solutions.' },
-    { icon: '\u2742', title: 'Design Support', desc: 'In-house design team for pattern development, colorway suggestions, and trend forecasting.' },
+    { icon: '\u2699', title: 'Custom Fabric', desc: 'Bespoke yarn blends, custom GSM, special weaves. From concept to production -- entirely in-house.' },
+    { icon: '\u25A1', title: 'Custom Size', desc: 'Any dimension to fit your specific requirements. Standard hospitality sizes or fully bespoke specifications.' },
+    { icon: '\u25CE', title: 'Custom Color', desc: 'Pantone color matching with lab dip approval process. Standard white and custom dyeing options available.' },
+    { icon: '\u2302', title: 'Custom Packaging', desc: 'Branded polybags, gift boxes, retail packaging, bulk packaging. Complete packaging solutions for every market.' },
+    { icon: '\u2742', title: 'Design Support', desc: 'In-house design team for pattern development, colorway suggestions, and trend forecasting at no extra charge.' },
   ]
 
   const process = [
-    { step: 1, title: 'Inquiry & Brief', desc: 'Share your requirements: product type, quantity, specs, branding needs, and timeline expectations.' },
-    { step: 2, title: 'Proposal & Quote', desc: 'Our team prepares a detailed proposal with specifications, pricing, lead time, and customization options.' },
+    { step: 1, title: 'Inquiry & Brief', desc: 'Share your requirements: product type, quantity, specifications, branding needs, and timeline.' },
+    { step: 2, title: 'Proposal & Quote', desc: 'Our team prepares a detailed proposal with specifications, unit pricing, lead time, and customization options.' },
     { step: 3, title: 'Sample Development', desc: 'Pre-production samples for approval. Standard items: 3-5 days. Custom items: 7-10 days.' },
-    { step: 4, title: 'Production', desc: 'Full-scale production with in-line QC. Real-time progress updates and photo documentation.' },
+    { step: 4, title: 'Production', desc: 'Full-scale production with in-line QC. Real-time progress updates and photo documentation throughout.' },
     { step: 5, title: 'QC & Delivery', desc: 'Pre-shipment inspection, custom packaging, and logistics coordination. FOB/CIF/DDP shipping worldwide.' },
   ]
 
   const advantages = [
-    { icon: '\u2605', title: '5-7 Day Samples', desc: 'Industry-leading sample turnaround. Test before you commit to bulk orders.' },
-    { icon: '\u2699', title: 'Full Control', desc: 'Everything in-house from spinning to finished product. No subcontracting, no quality compromises.' },
-    { icon: '\u2713', title: 'Low MOQ', desc: 'Flexible minimum orders starting from 300-500 pieces for most custom items.' },
-    { icon: '\u23F1', title: '15-25 Day Delivery', desc: 'Standard lead time with on-time delivery rate of 98%+ over the past 3 years.' },
+    { icon: '\u2605', title: '5-7 Day Samples', desc: 'Industry-leading sample turnaround. Test quality before committing to bulk orders.' },
+    { icon: '\u2699', title: 'Full In-House Control', desc: 'Everything from spinning to finished product under one roof. No subcontracting, no quality compromises.' },
+    { icon: '\u2713', title: 'Low MOQ', desc: 'Flexible minimum orders starting from 300 pieces for most standard items. Trial orders welcome.' },
+    { icon: '\u23F1', title: '15-25 Day Delivery', desc: 'Standard production lead time with 98%+ on-time delivery rate over the past three years.' },
   ]
 
   const faqs = [
-    { q: 'What is the minimum order quantity for OEM orders?', a: 'MOQ varies by product type. Most custom items start at 300-500 pieces. Custom fabric development may require 1,000-2,000 pieces. We offer flexible trial orders for new clients.' },
-    { q: 'How long does sample development take?', a: 'Standard products with custom labeling: 3-5 working days. Fully custom products (new fabric/size/color): 7-10 working days. Expedited service available on request.' },
+    { q: 'What is the minimum order quantity for OEM orders?', a: 'MOQ varies by product type. Most standard items start at 300 pieces. Fully custom products with new fabric development may require 500-1,000 pieces. We offer flexible trial orders for new clients.' },
+    { q: 'How long does sample development take?', a: 'Standard products with custom labeling: 3-5 working days. Fully custom products (new fabric, size, color): 7-10 working days. Expedited service available on request.' },
     { q: 'Can you help with product design?', a: 'Yes. Our in-house design team can assist with pattern development, colorway recommendations, trend forecasting, and technical specifications at no extra charge for confirmed orders.' },
-    { q: 'What customization options are available?', a: 'Full customization including: material/yarn blend, GSM/weight, size/dimension, color (Pantone matching), weave pattern, branding (label/tag/embroidery), and packaging.' },
+    { q: 'What customization options are available?', a: 'Full customization including: material and yarn blend, GSM/weight, size and dimension, color (Pantone matching), weave pattern, branding (woven label, printed tag, embroidery), and packaging design.' },
     { q: 'Do you provide quality assurance documentation?', a: 'Yes. We provide full QC documentation including inspection reports, test certificates (OEKO-TEX, SGS), material composition analysis, and wash durability test results.' },
   ]
 
@@ -38,7 +38,7 @@ export default function OEMService() {
     <>
       <SEO
         title="OEM / ODM Services"
-        description="Custom hotel supplies manufacturing: branding, labeling, packaging, bespoke fabrics. 5-7 day samples, low MOQ, integrated factory-direct production."
+        description="Custom hotel textile manufacturing: branding, labeling, packaging, bespoke fabrics. 5-7 day samples, low MOQ from 300 pcs, integrated factory-direct production."
         path="/oem-odm"
         image="/images/hero-oem.webp"
       />
@@ -54,8 +54,8 @@ export default function OEMService() {
             Your Brand, <span className="text-gold">Our Factory</span>
           </h1>
           <p className="text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-            From custom labeling to fully bespoke product development -- our integrated
-            manufacturing capabilities make your vision a reality.
+            From custom labeling to fully bespoke product development -- our vertically integrated
+            manufacturing capabilities bring your vision to life.
           </p>
         </div>
       </section>
@@ -71,13 +71,11 @@ export default function OEMService() {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mt-8 md:mt-12">
-            {capabilities.map((cap) => (
-              <div key={cap.title} className="border border-border p-5 md:p-8 hover:border-gold hover:shadow-lg transition-all">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-gold-pale flex items-center justify-center text-xl md:text-2xl text-gold mb-3 md:mb-5">
-                  {cap.icon}
-                </div>
-                <h3 className="font-heading text-sm md:text-base font-semibold text-navy mb-2 md:mb-2.5">{cap.title}</h3>
-                <p className="text-[13px] md:text-sm text-text-secondary leading-relaxed">{cap.desc}</p>
+            {capabilities.map((item) => (
+              <div key={item.title} className="border border-border p-6 md:p-8 hover:border-gold hover:shadow-lg transition-all">
+                <div className="w-11 h-11 bg-gold-pale flex items-center justify-center text-xl text-gold mb-4">{item.icon}</div>
+                <h3 className="font-heading text-sm md:text-base font-semibold text-navy mb-2">{item.title}</h3>
+                <p className="text-[13px] md:text-sm text-text-secondary leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -88,8 +86,11 @@ export default function OEMService() {
       <section className="section-pad bg-bg-light">
         <div className="max-w-container mx-auto px-4 md:px-6">
           <div className="text-center">
-            <span className="section-label">How It Works</span>
-            <h2 className="section-title">From Concept to Delivery</h2>
+            <span className="section-label">Our Process</span>
+            <h2 className="section-title">From Inquiry to Delivery</h2>
+            <p className="section-desc mx-auto text-center">
+              A streamlined five-step process designed to make OEM ordering simple and transparent.
+            </p>
           </div>
           <div className="max-w-3xl mx-auto mt-8 md:mt-12">
             {process.map((item, idx) => (
@@ -114,17 +115,17 @@ export default function OEMService() {
       <section className="section-pad bg-white">
         <div className="max-w-container mx-auto px-4 md:px-6">
           <div className="text-center">
-            <span className="section-label">Why Choose Us</span>
+            <span className="section-label">Why LUXEHOSPI</span>
             <h2 className="section-title">The OEM Advantage</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-8 md:mt-12">
-            {advantages.map((adv) => (
-              <div key={adv.title} className="text-center">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-gold-pale mx-auto mb-3 md:mb-4 flex items-center justify-center text-2xl md:text-3xl text-gold">
-                  {adv.icon}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mt-8 md:mt-12">
+            {advantages.map((item) => (
+              <div key={item.title} className="text-center p-5 md:p-6">
+                <div className="w-12 h-12 bg-gold-pale mx-auto mb-4 flex items-center justify-center text-2xl text-gold">
+                  {item.icon}
                 </div>
-                <h3 className="font-heading text-[13px] md:text-[15px] font-semibold text-navy mb-1.5 md:mb-2">{adv.title}</h3>
-                <p className="text-[12px] md:text-sm text-text-secondary leading-relaxed">{adv.desc}</p>
+                <h3 className="font-heading text-sm md:text-base font-semibold text-navy mb-2">{item.title}</h3>
+                <p className="text-[13px] md:text-sm text-text-secondary leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -138,12 +139,17 @@ export default function OEMService() {
             <span className="section-label">FAQ</span>
             <h2 className="section-title">Common Questions</h2>
           </div>
-          <div className="max-w-3xl mx-auto mt-8 md:mt-12">
+          <div className="max-w-3xl mx-auto mt-8 md:mt-12 space-y-4">
             {faqs.map((faq) => (
-              <div key={faq.q} className="py-3.5 md:py-5 border-b border-border">
-                <h3 className="font-heading text-[13px] md:text-sm font-semibold text-navy mb-1 md:mb-2">{faq.q}</h3>
-                <p className="text-[13px] md:text-sm text-text-secondary leading-relaxed">{faq.a}</p>
-              </div>
+              <details key={faq.q} className="group bg-white border border-border">
+                <summary className="p-4 md:p-5 cursor-pointer font-heading text-sm md:text-base font-semibold text-navy flex items-center justify-between hover:text-gold transition-colors">
+                  {faq.q}
+                  <span className="text-gold ml-4 flex-shrink-0 group-open:rotate-180 transition-transform">&#9660;</span>
+                </summary>
+                <div className="px-4 md:px-5 pb-4 md:pb-5 text-[13px] md:text-sm text-text-secondary leading-relaxed">
+                  {faq.a}
+                </div>
+              </details>
             ))}
           </div>
         </div>
@@ -153,14 +159,15 @@ export default function OEMService() {
       <section className="bg-gold-pale py-10 md:py-16">
         <div className="max-w-container mx-auto px-4 md:px-6 text-center">
           <h2 className="font-heading text-xl md:text-[28px] font-bold text-navy mb-2 md:mb-3">
-            Ready to Start Your Custom Project?
+            Start Your Custom Order
           </h2>
           <p className="text-sm md:text-base text-text-primary mb-6 md:mb-8 max-w-lg mx-auto">
-            Submit your requirements and receive a detailed proposal with samples within 5 business days.
+            Tell us your requirements and our team will prepare a detailed proposal with
+            pricing, samples, and timeline within 24 hours.
           </p>
           <div className="flex gap-3 md:gap-4 justify-center">
-            <Link to="/rfq" className="btn-cta">Start Your OEM Project</Link>
-            <Link to="/contact" className="btn-primary">Talk to Our Team</Link>
+            <Link to="/rfq" className="btn-cta">Submit Your RFQ</Link>
+            <Link to="/contact" className="btn-primary">Contact Our Team</Link>
           </div>
         </div>
       </section>

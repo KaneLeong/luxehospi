@@ -29,10 +29,10 @@ export default function Home() {
     return () => { cancelled = true }
   }, [])
 
-  const stat1 = useCountUp({ end: 12, suffix: '+', duration: 2000 })
-  const stat2 = useCountUp({ end: 80, suffix: '+', duration: 2200 })
+  const stat1 = useCountUp({ end: 18, suffix: '+', duration: 2000 })
+  const stat2 = useCountUp({ end: 120, suffix: '+', duration: 2200 })
   const stat3 = useCountUp({ end: 50, suffix: '+', duration: 2400 })
-  const stat4 = useCountUp({ end: 15, suffix: '+', duration: 1800 })
+  const stat4 = useCountUp({ end: 18, suffix: '+', duration: 1800 })
 
   return (
     <>
@@ -49,15 +49,15 @@ export default function Home() {
         <div className="max-w-container mx-auto px-4 md:px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="flex-1 text-center lg:text-left">
             <span className="font-heading text-[10px] md:text-xs font-bold tracking-[2px] md:tracking-[3px] uppercase text-gold block mb-4 md:mb-5">
-              Integrated Hotel Supply Manufacturer
+              Integrated Hospitality Textile Manufacturer
             </span>
             <h1 className="font-heading text-3xl md:text-[42px] lg:text-[48px] font-bold text-white leading-tight mb-4 md:mb-5">
-              From Yarn to Room,{' '}
+              From Yarn to Finished Goods,{' '}
               <span className="text-gold">Quality at Every Step.</span>
             </h1>
             <p className="text-base md:text-lg text-white/70 leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-              Full-spectrum hotel supplies from an integrated manufacturer with in-house spinning,
-              weaving, dyeing and garment production. One source for every essential.
+              Vertically integrated manufacturer covering spinning, knitting, dyeing, and garment production.
+              Premium hotel textiles and amenities delivered directly from our factory to your property.
             </p>
             <div className="flex gap-3 md:gap-4 justify-center lg:justify-start flex-wrap">
               <Link to="/products" className="btn-cta">
@@ -70,9 +70,9 @@ export default function Home() {
             <div ref={stat1.ref} className="grid grid-cols-2 lg:flex lg:gap-10 mt-10 md:mt-12 pt-6 md:pt-8 border-t border-white/15 gap-4 md:gap-6">
               {[
                 { num: stat1.display, label: 'Product Categories' },
-                { num: stat2.display, label: 'Sub-categories' },
+                { num: stat2.display, label: 'Product Variants' },
                 { num: stat3.display, label: 'Countries Served' },
-                { num: stat4.display, label: 'Years Experience' },
+                { num: stat4.display, label: 'Years in Business' },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="font-heading text-2xl md:text-[28px] font-bold text-gold">{s.num}</div>
@@ -98,12 +98,12 @@ export default function Home() {
       {/* TRUST BAR */}
       <section className="bg-bg-light py-8 md:py-12 border-b border-border">
         <div className="max-w-container mx-auto px-4 md:px-6 flex items-center justify-center gap-6 md:gap-12 flex-wrap">
-          {['MARRIOTT', 'HILTON', 'ACCOR', 'IHG', 'HYATT', 'WYNDHAM', 'CHOICE'].map((brand) => (
+          {['ISO 9001', 'OEKO-TEX 100', 'BSCI', 'SGS', 'WRAP', 'GOTS', 'GRS'].map((cert) => (
             <span
-              key={brand}
-              className="font-heading text-sm md:text-lg font-bold text-text-primary/30 md:text-text-primary/35 tracking-wider"
+              key={cert}
+              className="font-heading text-xs md:text-sm font-bold text-text-primary/35 md:text-text-primary/40 tracking-wider"
             >
-              {brand}
+              {cert}
             </span>
           ))}
         </div>
@@ -120,8 +120,8 @@ export default function Home() {
                 <br className="hidden sm:block" />In One Place.
               </h2>
               <p className="section-desc mx-auto text-center">
-                12 major categories covering every essential -- from bedroom linens to disposable
-                amenities. Browse our full range or request a customized catalog.
+                4 major product categories covering bedroom, bathroom, towels, and guest amenities.
+                Browse our full range or request a customized catalog.
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mt-8 md:mt-12">
@@ -150,7 +150,7 @@ export default function Home() {
             </div>
             <div className="text-center mt-8 md:mt-10">
               <Link to="/products" className="btn-outline btn-sm">
-                View All 12 Categories &rarr;
+                View All Products &rarr;
               </Link>
             </div>
           </div>
@@ -254,21 +254,21 @@ export default function Home() {
             {[
               {
                 quote:
-                  'Switching to LUXEHOSPI cut our linen procurement costs by 22% while improving thread quality. Their integrated supply chain means consistent quality across every batch.',
+                  'LUXEHOSPI reduced our linen procurement costs by 22% while improving thread quality. Their vertical integration means consistent quality across every batch -- something we never had with trading companies.',
                 name: 'James Henderson',
                 role: 'Procurement Director, Sterling Hotel Group -- UK',
                 initials: 'JH',
               },
               {
                 quote:
-                  'Their OEM program is exceptional. We provided our design specs and received production-ready samples within 6 days. The 700gsm towels are genuinely the best in their price range.',
+                  'Their OEM program is exceptional. We provided our design specs and received production-ready samples within 6 days. The 700gsm towels are genuinely the best in their price range -- our guests notice the difference.',
                 name: 'Marie Klein',
                 role: 'Brand Manager, Plein Sud Hotels -- France',
                 initials: 'MK',
               },
               {
                 quote:
-                  "We've been sourcing from LUXEHOSPI for 8 years now. Their digital RFQ system makes reordering effortless, and the lead times are consistently reliable.",
+                  "Eight years of partnership and counting. Their digital RFQ system makes reordering effortless, and lead times are consistently reliable. They are more than a supplier -- they are an extension of our operations team.",
                 name: 'Robert Schmidt',
                 role: 'COO, Alpina Resort Collection -- Germany',
                 initials: 'RS',
@@ -301,7 +301,7 @@ export default function Home() {
         <div className="max-w-container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 text-center md:text-left">
           <div>
             <h2 className="font-heading text-xl md:text-[28px] font-bold text-navy mb-2">
-              Ready to Transform Your Supply Chain?
+              Ready to Streamline Your Procurement?
             </h2>
             <p className="text-sm md:text-base text-text-primary">
               Get a free product catalog, sample swatches, or a custom quote -- delivered within 24

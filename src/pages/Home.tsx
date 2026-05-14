@@ -30,9 +30,9 @@ export default function Home() {
   }, [])
 
   const stat1 = useCountUp({ end: 18, suffix: '+', duration: 2000 })
-  const stat2 = useCountUp({ end: 120, suffix: '+', duration: 2200 })
-  const stat3 = useCountUp({ end: 50, suffix: '+', duration: 2400 })
-  const stat4 = useCountUp({ end: 18, suffix: '+', duration: 1800 })
+  const stat2 = useCountUp({ end: 15, suffix: '+', duration: 2200 })
+  const stat3 = useCountUp({ end: 4, suffix: '', duration: 1600 })
+  const stat4 = useCountUp({ end: 50, suffix: '+', duration: 2400 })
 
   return (
     <>
@@ -67,12 +67,12 @@ export default function Home() {
                 Get Free Samples
               </Link>
             </div>
-            <div ref={stat1.ref} className="grid grid-cols-2 lg:flex lg:gap-10 mt-10 md:mt-12 pt-6 md:pt-8 border-t border-white/15 gap-4 md:gap-6">
+            <div className="grid grid-cols-2 lg:flex lg:gap-10 mt-10 md:mt-12 pt-6 md:pt-8 border-t border-white/15 gap-4 md:gap-6">
               {[
-                { num: stat1.display, label: 'Product Categories' },
-                { num: stat2.display, label: 'Product Variants' },
-                { num: stat3.display, label: 'Countries Served' },
-                { num: stat4.display, label: 'Years in Business' },
+                { num: stat1.display, label: 'Years of Experience' },
+                { num: stat2.display, label: 'Product Lines' },
+                { num: stat3.display, label: 'Factories' },
+                { num: stat4.display, label: 'Countries Exported' },
               ].map((s) => (
                 <div key={s.label}>
                   <div className="font-heading text-2xl md:text-[28px] font-bold text-gold">{s.num}</div>

@@ -45,8 +45,13 @@ export default function OEMService() {
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-navy to-navy-dark py-16 md:py-24 text-center relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img src="/images/hero-oem.webp" alt="" className="w-full h-full object-cover opacity-20" loading="eager" />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy/90 to-navy-dark/80" />
+        </div>
         <div className="absolute -top-1/2 -right-[15%] w-[500px] h-[500px] border border-gold/10 rotate-45 hidden md:block" />
-        <div className="max-w-container mx-auto px-4 md:px-6">
+        <div className="max-w-container mx-auto px-4 md:px-6 relative z-10">
           <span className="font-heading text-[10px] md:text-xs font-bold tracking-[2px] md:tracking-[3px] uppercase text-gold block mb-3">
             OEM / ODM Services
           </span>

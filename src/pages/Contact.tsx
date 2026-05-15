@@ -131,7 +131,7 @@ export default function Contact() {
 
       {/* Quick Contact Cards */}
       <section className="bg-bg-light py-8 md:py-12 border-b border-border">
-        <div className="max-w-container mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 -mt-12 md:-mt-20 relative z-10">
+        <div className="max-w-container mx-auto px-4 md:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 -mt-12 md:-mt-20 relative z-10">
           {[
             { icon: '\u2709', title: 'Email Us', value: 'contact@luxehospi.com', desc: 'Response within 24 hours' },
             { icon: '\u260E', title: 'Call / WhatsApp', value: '+86 757 8123 4567', desc: 'Mon-Sat 9:00-18:00 GMT+8' },

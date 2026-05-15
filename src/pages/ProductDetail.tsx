@@ -381,7 +381,7 @@ export default function ProductDetail() {
 
       {/* Tabs */}
       <div className="max-w-container mx-auto px-4 md:px-6 pb-12 md:pb-16">
-        <div className="flex overflow-x-auto border-b-2 border-border mb-6 md:mb-8 -mx-4 md:mx-0 px-4 md:px-0">
+        <div className="flex overflow-x-auto scrollbar-hide border-b-2 border-border mb-6 md:mb-8 -mx-4 md:mx-0 px-4 md:px-0">
           {tabList.map((tab) => (
             <button
               key={tab.id}
@@ -400,7 +400,7 @@ export default function ProductDetail() {
         {/* Specs Tab */}
         {activeTab === 'specs' && (
           <div>
-            <div className="overflow-x-auto -mx-4 md:mx-0">
+            <div className="overflow-x-auto scrollbar-hide -mx-4 md:mx-0">
               <table className="w-full border-collapse mb-6 min-w-[400px]">
                 <tbody>
                   {Object.entries(product.specs).map(([key, value]) => (
@@ -440,7 +440,7 @@ export default function ProductDetail() {
 
         {/* Shipping Tab */}
         {activeTab === 'shipping' && (
-          <div className="overflow-x-auto -mx-4 md:mx-0">
+          <div className="overflow-x-auto scrollbar-hide -mx-4 md:mx-0">
             <table className="w-full border-collapse min-w-[400px]">
               <tbody>
                 {[
